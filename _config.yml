@@ -11,7 +11,7 @@ locale                   : "en-US"
 title                    : "Ziqian LIN's Personal Page"
 title_separator          : "-"
 name                     : &name "Ziqian LIN"
-description              : &description "A Ph.D. student in Computer Science and Engineering, The Chinese University of Hong Kong"
+description              : &description "Ph.D. student"
 url                      : https://Lim-ZQ.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "Lim-ZQ/Lim-ZQ.github.io"
@@ -21,10 +21,10 @@ repository               : "Lim-ZQ/Lim-ZQ.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "Ziqian LIN's Personal Page"
+  avatar           : "lzq.png"
+  name             : "Ziqian LIN"
   pronouns         : # example: "she/her"  
-  bio              : "A Ph.D. student in Computer Science and Engineering, The Chinese University of Hong Kong"
+  bio              : "Ph.D. student in Computer Science and Engineering"
   location         : "Hong Kong SAR, China"
   employer         : "The Chinese University of Hong Kong"
   uri              : # URL
@@ -48,7 +48,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : #"bsky.app" # Replace this with you Bluesky username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
