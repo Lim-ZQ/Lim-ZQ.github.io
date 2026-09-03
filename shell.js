@@ -18,7 +18,6 @@ const PAGES = {
     `${C.bold}Ph.D. Candidate${C.reset} · ${osc("CSE", "https://www.cse.cuhk.edu.hk/")} · ${osc("CUHK", "https://www.cuhk.edu.hk/")}`,
     "Hong Kong SAR, China",
     "",
-    `> ${osc("about", "#about")} · ${osc("papers", "#papers")} · ${osc("interests", "#interests")} · ${osc("experience", "#experience")} · ${osc("teaching", "#teaching")}`,
     `> ${osc("GitHub", "https://github.com/Lim-ZQ")} · ${osc("Group", "https://github.com/ml4bio")} · ${osc("Scholar", "https://scholar.google.com/citations?user=rGY-MwUAAAAJ")}`,
     "",
     "I am a Ph.D. candidate in Computer Science and Engineering at The Chinese",
@@ -151,7 +150,7 @@ const PAGES = {
     "  help            this page",
     "",
     `${C.bold}tips${C.reset}`,
-    "  Click a blue command on the home page to run it.",
+    "  Type a page name to open it, e.g. papers or about.",
     "  History: ↑ / ↓. Cancel: Ctrl-C. Clear: Ctrl-L.",
   ],
 };
