@@ -32,7 +32,7 @@ const PAGES = {
     "• This page doubles as a shell.",
     `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}ls${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026${C.reset}`,
+    `${C.dim}Last update: Thu Sep 3 2026 13:39${C.reset}`,
   ],
   about: () => [
     `${C.bold}# about${C.reset}`,

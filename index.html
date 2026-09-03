@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./style.css" />
   <title>~lzq</title>
   <meta name="description" content="Ph.D. candidate in Computer Science and Engineering, CUHK" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 </head>
 <body>
   <svg class="defs-only" aria-hidden="true" focusable="false">
@@ -33,6 +34,13 @@ Hong Kong SAR, China
 
 Enable JavaScript to use the terminal. Content is also on Google Scholar.</pre>
   </noscript>
-  <script type="module" src="./shell.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((regs) => {
+        regs.forEach((reg) => reg.unregister());
+      });
+    }
+  </script>
+  <script type="module" src="./shell.js?v=20260903d"></script>
 </body>
 </html>
