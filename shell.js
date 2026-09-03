@@ -18,7 +18,7 @@ const PAGES = {
     `${C.bold}Ph.D. Candidate${C.reset} · ${osc("CSE", "https://www.cse.cuhk.edu.hk/")} · ${osc("CUHK", "https://www.cuhk.edu.hk/")}`,
     "Hong Kong SAR, China",
     "",
-    `> ${osc("GitHub", "https://github.com/Lim-ZQ")} · ${osc("Group", "https://github.com/ml4bio")} · ${osc("Scholar", "https://scholar.google.com/citations?user=rGY-MwUAAAAJ")}`,
+    `> ${osc("GitHub", "https://github.com/Lim-ZQ")} · ${osc("Group Github", "https://github.com/ml4bio")} · ${osc("Scholar", "https://scholar.google.com/citations?user=rGY-MwUAAAAJ")}`,
     "",
     "I am a Ph.D. candidate in Computer Science and Engineering at The Chinese",
     `University of Hong Kong, advised by ${osc("Prof. Yu Li", "https://liyu95.com/")} and`,
