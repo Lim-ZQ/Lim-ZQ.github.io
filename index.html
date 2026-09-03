@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ziqian LIN</title>
+  <meta name="description" content="Ph.D. candidate in Computer Science and Engineering, CUHK">
+  <link rel="icon" href="images/favicon.ico">
+  <style>
+    :root {
+      --text: #222;
+      --muted: #555;
+      --link: #1a4f8b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0 auto;
+      max-width: 820px;
+      padding: 36px 22px 72px;
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 {
+      margin: 0 0 0.25em;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 1.8em 0 0.55em;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    h3 {
+      margin: 0 0 0.45em;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 0.85em; }
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+    li { margin: 0.25em 0; }
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 28px;
+    }
+    .hero-text { flex: 1; }
+    .hero img {
+      width: 168px;
+      height: 168px;
+      object-fit: cover;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .meta { color: var(--muted); margin-bottom: 0.35em; }
+    .contact { color: var(--muted); }
+    .pub {
+      list-style: none;
+      margin: 0 0 1.15em;
+      padding: 0;
+    }
+    .pub-title { font-weight: 700; }
+    .authors, .venue { color: var(--text); }
+    .doi { font-size: 0.95em; }
+    .role { margin: 0 0 1.05em; }
+    .role-title { font-weight: 700; }
+    .role ul { margin-top: 0.25em; }
+    footer {
+      margin-top: 2.5em;
+      color: var(--muted);
+      font-size: 0.92em;
+    }
+    @media (max-width: 640px) {
+      .hero { flex-direction: column-reverse; }
+      .hero img { width: 132px; height: 132px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-text">
+      <h1>Ziqian LIN</h1>
+      <h3>Ph.D. Candidate in Computer Science and Engineering, CUHK</h3>
+      <p class="meta">Hong Kong SAR, China</p>
+      <p class="contact">
+        Email: linzq.gm [AT] gmail.com
+        &nbsp;·&nbsp;
+        GitHub: <a href="https://github.com/Lim-ZQ">Lim-ZQ</a>
+        &nbsp;·&nbsp;
+        Google Scholar: <a href="https://scholar.google.com/citations?user=rGY-MwUAAAAJ">profile</a>
+      </p>
+    </div>
+    <img src="images/lzq.png" alt="Ziqian Lin">
+  </header>
+
+  <h2>About Me</h2>
+  <p>
+    I am a Ph.D. candidate in the Department of Computer Science and Engineering at
+    <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong</a>,
+    advised by <a href="https://liyu95.com/">Prof. Yu Li</a> and
+    <a href="https://www.cse.cuhk.edu.hk/people/faculty/irwin-king/">Prof. Irwin King</a>.
+    My research focuses on RNA structure prediction and design, diffusion models for biomolecule generation, and biomolecule interactions.
+  </p>
+  <p>
+    I received my B.Eng. in Artificial Intelligence from
+    <a href="https://www.nju.edu.cn/">Nanjing University</a>,
+    advised by <a href="https://cs.nju.edu.cn/zhouzh/index.htm">Prof. Zhihua Zhou</a>.
+  </p>
+
+  <h2>Research Interests</h2>
+  <ul>
+    <li>RNA structure prediction and design</li>
+    <li>Diffusion models for biomolecule generation</li>
+    <li>Biomolecule interactions</li>
+  </ul>
+
+  <h2>Selected Publications</h2>
+  <p><a href="https://scholar.google.com/citations?user=rGY-MwUAAAAJ">Google Scholar</a></p>
+
+  <ul class="pub">
+    <li>
+      <div class="pub-title">[RiboDiffusion] RiboDiffusion: tertiary structure-based RNA inverse folding with generative diffusion models</div>
+      <div class="authors">H. Huang*, <b>Z. Lin</b>*, D. He, L. Hong, Y. Li</div>
+      <div class="venue"><i>ISMB / Bioinformatics</i>, 2024. (acceptance rate 18%)</div>
+      <div class="doi"><a href="https://doi.org/10.1093/bioinformatics/btae259">doi:10.1093/bioinformatics/btae259</a></div>
+    </li>
+  </ul>
+  <ul class="pub">
+    <li>
+      <div class="pub-title">Discovering reference-missing cell types in bulk transcriptomics</div>
+      <div class="authors">Y. Fan, Y. Liu, Y. Zhong, Y. Wang, K.-H. Lee, Y. Wang, X. Liu, J. Li, X. Wang, <b>Z. Lin</b>, L. Li, Y. Li</div>
+      <div class="venue"><i>Bioinformatics / ECCB</i>, 2026.</div>
+      <div class="doi"><a href="https://doi.org/10.1093/bioinformatics/btag412">doi:10.1093/bioinformatics/btag412</a></div>
+    </li>
+  </ul>
+  <ul class="pub">
+    <li>
+      <div class="pub-title">[DS-ProGen] DS-ProGen: a dual-structure deep language model for functional protein design</div>
+      <div class="authors">Y. Li*, J. Jiang*, Z. Wang*, <b>Z. Lin</b>, D. He, Y. Shan, Y. Shao, J. Li, X. Shi, J. Wang, Y. Chen, Y. Fan, H. Li, Y. Li</div>
+      <div class="venue"><i>AAAI</i>, 2026.</div>
+      <div class="doi"><a href="https://doi.org/10.1609/aaai.v40i1.37037">doi:10.1609/aaai.v40i1.37037</a></div>
+    </li>
+  </ul>
+  <ul class="pub">
+    <li>
+      <div class="pub-title">[RMSAGen] RMSAGen: Integrating Multiple Sequence Alignment for Function RNA Design</div>
+      <div class="authors">J. Jiang, Y. Chen, Q. Zhang, J. Li, X. Shi, C. Zhou, <b>Z. Lin</b>, J. Wang, D. He, L. Hong, Q. Li, P. Chen, J. Chen, X. Zhang, J. Yuan, T. Zhang, Y. Li</div>
+      <div class="venue"><i>AAAI</i>, 2026.</div>
+      <div class="doi"><a href="https://doi.org/10.1609/aaai.v40i1.37012">doi:10.1609/aaai.v40i1.37012</a></div>
+    </li>
+  </ul>
+
+  <h2>Research Experience</h2>
+  <div class="role">
+    <div class="role-title">Ph.D. Candidate, CUHK, Hong Kong SAR (Sep. 2024 – Present)</div>
+    Advisors: <a href="https://liyu95.com/">Prof. Yu Li</a> and <a href="https://www.cse.cuhk.edu.hk/people/faculty/irwin-king/">Prof. Irwin King</a>
+    <ul>
+      <li>Lead a diffusion-based RNA design pipeline with agentic orchestration.</li>
+      <li>Lead an integrative RNA 3D structure prediction tool.</li>
+    </ul>
+  </div>
+  <div class="role">
+    <div class="role-title">Research Intern, Shanghai Academy of AI for Science, Shanghai (Aug. 2025 – Present)</div>
+    Advisors: <a href="https://ai3.fudan.edu.cn/info/1088/2244.htm">Prof. Yuan Cheng</a> and Dr. Xvyang Liu
+    <ul>
+      <li>Develop RNA foundation models and design tooling.</li>
+    </ul>
+  </div>
+  <div class="role">
+    <div class="role-title">Research Intern, AIH Group, The Chinese University of Hong Kong (Sep. 2023 – Aug. 2024)</div>
+    Advisor: <a href="https://liyu95.com/">Prof. Yu Li</a>
+    <ul>
+      <li>Developed a diffusion model for RNA inverse folding, improving recovery by 10% and diversity by 20% over prior ML methods (ISMB 2024, acceptance rate 18%).</li>
+    </ul>
+  </div>
+  <div class="role">
+    <div class="role-title">Research Intern, LAMDA-1 Group, Nanjing University (Feb. 2022 – Sep. 2023)</div>
+    Advisors: <a href="https://cs.nju.edu.cn/zhouzh/index.htm">Prof. Zhihua Zhou</a> and <a href="https://www.lamda.nju.edu.cn/zhangsq/">Prof. Shaoqun Zhang</a>
+    <ul>
+      <li>Developed a contract-bridge AI with abductive-learning bidding and BERT-based play, outperforming Wbridge5 by 20 points on average.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <ul>
+    <li>Ph.D. in Computer Science and Engineering, The Chinese University of Hong Kong (Sep. 2024 – Now)</li>
+    <li>B.Eng. in Artificial Intelligence, Nanjing University (Sep. 2020 – Jun. 2024)</li>
+  </ul>
+
+  <h2>Honors &amp; Scholarships</h2>
+  <ul>
+    <li>2024 – Present: Postgraduate Studentship (PGS), The Chinese University of Hong Kong</li>
+    <li>2024: Outstanding graduate, University level, 10% of about 3000 graduates</li>
+    <li>2023: Outstanding Student Leader Model, University level, 1% of 13000 students</li>
+    <li>2023: Outstanding Minority Student, University level, 10 out of 1500 students</li>
+    <li>2022: National Scholarship, National level, 1 out of 97 students</li>
+  </ul>
+
+  <h2>Academic Service</h2>
+  <ul>
+    <li>Reviewer for journals: Science, Cell, Nature Methods, Nature Communications, Communications Biology, Bioinformatics</li>
+    <li>Reviewer for conferences: RECOMB, NeurIPS, EMNLP, ACL, AAAI</li>
+  </ul>
+
+  <h2>Teaching</h2>
+  <ul>
+    <li>BMEG-3105, Data Analytics for Personalized Genomics and Precision Medicine (2024–2026). The course received the <a href="https://www.cuhk.edu.hk/vc-exemplary-teaching-award/english/award2024.html">Vice-Chancellor's Exemplary Teaching Award 2024</a>, CUHK.</li>
+    <li>CSCI-5640, Natural Language Processing (2025)</li>
+    <li>ENGG-1110, Problem Solving By Programming (2024)</li>
+  </ul>
+
+  <footer>Last updated September 2026.</footer>
+</body>
+</html>
