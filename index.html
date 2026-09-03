@@ -3,214 +3,317 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ziqian LIN</title>
+  <title>~lzq</title>
   <meta name="description" content="Ph.D. candidate in Computer Science and Engineering, CUHK">
   <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --text: #222;
-      --muted: #555;
-      --link: #1a4f8b;
+      --bg: #fafafa;
+      --fg: #2e3338;
+      --muted: #6a737d;
+      --link: #0969da;
+      --border: #d0d7de;
+      --accent: #0969da;
+      --crt-scan: rgba(0, 0, 0, 0.035);
+      --crt-vignette: rgba(0, 0, 0, 0.12);
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0 auto;
-      max-width: 820px;
-      padding: 36px 22px 72px;
-      color: var(--text);
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, Candara, "Segoe UI", Optima, sans-serif;
-      font-size: 17px;
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #eceef1;
+      color: var(--fg);
+      font-family: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 14.5px;
       line-height: 1.55;
     }
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    h1, h2, h3 {
-      color: #527bbd;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, Candara, "Segoe UI", Optima, sans-serif;
-      font-weight: 600;
-      line-height: 1.15;
+    .wrap {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
     }
-    h1 {
-      margin: 0 0 0.25em;
-      font-size: 1.7rem;
-      border-bottom: none;
+    .term {
+      position: relative;
+      width: 100%;
+      max-width: calc(80ch + 40px);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px 16px;
+      overflow: hidden;
     }
-    h2 {
-      margin: 1.8em 0 0.55em;
-      padding-bottom: 0.2em;
-      font-size: 1.25rem;
-      border-bottom: 1px solid #aaaaaa;
+    .term::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--crt-scan) 0 1px,
+        transparent 1px 3px
+      );
+      mix-blend-mode: multiply;
+      z-index: 2;
     }
-    h3 {
-      margin: 0 0 0.45em;
-      font-size: 1.1rem;
+    .term::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse 120% 120% at 50% 50%, transparent 55%, var(--crt-vignette) 100%);
+      z-index: 3;
     }
-    p { margin: 0 0 0.85em; }
-    ul {
-      margin: 0;
-      padding-left: 1.2em;
-    }
-    li { margin: 0.25em 0; }
+    .screen { position: relative; z-index: 1; }
     .hero {
       display: flex;
       justify-content: space-between;
+      gap: 20px;
       align-items: flex-start;
-      gap: 28px;
     }
-    .hero-text { flex: 1; }
+    .banner {
+      margin: 0 0 0.6em;
+      font-size: 11px;
+      line-height: 1.05;
+      white-space: pre;
+      color: var(--fg);
+    }
     .hero img {
-      width: 168px;
-      height: 168px;
+      width: 132px;
+      height: 132px;
       object-fit: cover;
-      border-radius: 4px;
+      border: 1px solid var(--border);
       flex-shrink: 0;
     }
-    .meta { color: var(--muted); margin-bottom: 0.35em; }
-    .contact { color: var(--muted); }
-    .pub {
-      list-style: none;
-      margin: 0 0 1.15em;
-      padding: 0;
+    .rule { color: var(--muted); margin: 0 0 0.7em; }
+    .meta, .hint { color: var(--muted); }
+    .hint { margin: 0.7em 0; }
+    .cmd { color: var(--accent); }
+    h2 {
+      margin: 1.5em 0 0.55em;
+      font-size: 1em;
+      font-weight: 600;
+      color: var(--fg);
     }
-    .pub-title { font-weight: 700; }
-    .authors, .venue { color: var(--text); }
-    .doi { font-size: 0.95em; }
-    .role { margin: 0 0 1.05em; }
-    .role-title { font-weight: 700; }
-    .role ul { margin-top: 0.25em; }
-    footer {
-      margin-top: 2.5em;
-      color: var(--muted);
-      font-size: 0.92em;
+    h2::before { content: "$ cat "; color: var(--accent); font-weight: 500; }
+    p { margin: 0 0 0.75em; }
+    ul { margin: 0 0 0.75em; padding-left: 1.2em; }
+    li { margin: 0.2em 0; }
+    .pub { list-style: none; padding: 0; margin: 0 0 1em; }
+    .pub-title { font-weight: 600; }
+    .authors, .venue, .doi { color: var(--fg); }
+    .role { margin: 0 0 0.85em; }
+    .role-title { font-weight: 600; }
+    footer { margin-top: 1.6em; color: var(--muted); }
+    .prompt-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 1.2em;
+      padding-top: 0.4em;
     }
-    @media (max-width: 640px) {
+    .prompt { color: var(--accent); font-weight: 600; white-space: nowrap; }
+    .prompt-row input {
+      flex: 1;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--fg);
+      font: inherit;
+      min-width: 0;
+    }
+    .help { color: var(--muted); min-height: 1.4em; margin: 0.25em 0 0; }
+    @media (max-width: 700px) {
       .hero { flex-direction: column-reverse; }
-      .hero img { width: 132px; height: 132px; }
+      .banner { font-size: 8px; overflow-x: auto; }
+      .hero img { width: 110px; height: 110px; }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="hero-text">
-      <h1>Ziqian LIN</h1>
-      <h3>Ph.D. Candidate in Computer Science and Engineering, CUHK</h3>
-      <p class="meta">Hong Kong SAR, China</p>
-      <p class="contact">
-        Email: linzq.gm [AT] gmail.com
-        &nbsp;·&nbsp;
-        GitHub: <a href="https://github.com/Lim-ZQ">Lim-ZQ</a>
-        &nbsp;·&nbsp;
-        Group GitHub: <a href="https://github.com/ml4bio">ml4bio</a>
-        &nbsp;·&nbsp;
-        Google Scholar: <a href="https://scholar.google.com/citations?user=rGY-MwUAAAAJ">profile</a>
-      </p>
+  <div class="wrap">
+    <div class="term">
+      <div class="screen">
+        <header class="hero">
+          <div>
+            <pre class="banner">███████╗██╗ ██████╗ ██╗ █████╗ ███╗   ██╗
+╚══███╔╝██║██╔═══██╗██║██╔══██╗████╗  ██║
+  ███╔╝ ██║██║   ██║██║███████║██╔██╗ ██║
+ ███╔╝  ██║██║▄▄ ██║██║██╔══██║██║╚██╗██║
+███████╗██║╚██████╔╝██║██║  ██║██║ ╚████║
+╚══════╝╚═╝ ╚══▀▀═╝ ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+                           LIN  ·  lzq</pre>
+            <div class="rule"># Ziqian LIN  ·  linzq.gm@gmail.com</div>
+            <p>
+              Ph.D. Candidate · <a href="https://www.cse.cuhk.edu.hk/">CSE</a> · <a href="https://www.cuhk.edu.hk/">CUHK</a><br>
+              Hong Kong SAR, China
+            </p>
+            <p class="meta">
+              GitHub: <a href="https://github.com/Lim-ZQ">Lim-ZQ</a>
+              · Group: <a href="https://github.com/ml4bio">ml4bio</a>
+              · Scholar: <a href="https://scholar.google.com/citations?user=rGY-MwUAAAAJ">profile</a>
+            </p>
+            <p class="hint">
+              This page doubles as a shell. Try:
+              <a class="cmd" href="#about" data-cmd="about">about</a>,
+              <a class="cmd" href="#papers" data-cmd="papers">papers</a>,
+              <a class="cmd" href="#help" data-cmd="help">help</a>.
+            </p>
+          </div>
+          <img src="images/lzq.png" alt="Ziqian Lin">
+        </header>
+
+        <h2 id="about">about.txt</h2>
+        <p>
+          I am a Ph.D. candidate in the Department of Computer Science and Engineering at
+          <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong</a>,
+          advised by <a href="https://liyu95.com/">Prof. Yu Li</a> and
+          <a href="https://www.cse.cuhk.edu.hk/people/faculty/irwin-king/">Prof. Irwin King</a>.
+          My research focuses on RNA structure prediction and design, diffusion models for biomolecule generation, and biomolecule interactions.
+        </p>
+        <p>
+          I received my B.Eng. in Artificial Intelligence from
+          <a href="https://www.nju.edu.cn/">Nanjing University</a>,
+          advised by <a href="https://cs.nju.edu.cn/zhouzh/index.htm">Prof. Zhihua Zhou</a>.
+        </p>
+
+        <h2 id="interests">interests.txt</h2>
+        <ul>
+          <li>RNA structure prediction and design</li>
+          <li>Diffusion models for biomolecule generation</li>
+          <li>Biomolecule interactions</li>
+        </ul>
+
+        <h2 id="papers">papers.txt</h2>
+        <p><a href="https://scholar.google.com/citations?user=rGY-MwUAAAAJ">[Google Scholar]</a></p>
+        <ul class="pub">
+          <li>
+            <div class="pub-title">[RiboDiffusion] RiboDiffusion: tertiary structure-based RNA inverse folding with generative diffusion models</div>
+            <div class="authors">H. Huang*, <b>Z. Lin</b>*, D. He, L. Hong, Y. Li</div>
+            <div class="venue">ISMB / Bioinformatics, 2024. (acceptance rate 18%)</div>
+            <div class="doi"><a href="https://doi.org/10.1093/bioinformatics/btae259">doi:10.1093/bioinformatics/btae259</a></div>
+          </li>
+        </ul>
+        <ul class="pub">
+          <li>
+            <div class="pub-title">Discovering reference-missing cell types in bulk transcriptomics</div>
+            <div class="authors">Y. Fan, Y. Liu, Y. Zhong, Y. Wang, K.-H. Lee, Y. Wang, X. Liu, J. Li, X. Wang, <b>Z. Lin</b>, L. Li, Y. Li</div>
+            <div class="venue">Bioinformatics / ECCB, 2026.</div>
+            <div class="doi"><a href="https://doi.org/10.1093/bioinformatics/btag412">doi:10.1093/bioinformatics/btag412</a></div>
+          </li>
+        </ul>
+        <ul class="pub">
+          <li>
+            <div class="pub-title">DS-ProGen: a dual-structure deep language model for functional protein design</div>
+            <div class="authors">Y. Li*, J. Jiang*, Z. Wang*, <b>Z. Lin</b>, D. He, Y. Shan, Y. Shao, J. Li, X. Shi, J. Wang, Y. Chen, Y. Fan, H. Li, Y. Li</div>
+            <div class="venue">AAAI, 2026.</div>
+            <div class="doi"><a href="https://doi.org/10.1609/aaai.v40i1.37037">doi:10.1609/aaai.v40i1.37037</a></div>
+          </li>
+        </ul>
+        <ul class="pub">
+          <li>
+            <div class="pub-title">RMSAGen: Integrating Multiple Sequence Alignment for Function RNA Design</div>
+            <div class="authors">J. Jiang, Y. Chen, Q. Zhang, J. Li, X. Shi, C. Zhou, <b>Z. Lin</b>, J. Wang, D. He, L. Hong, Q. Li, P. Chen, J. Chen, X. Zhang, J. Yuan, T. Zhang, Y. Li</div>
+            <div class="venue">AAAI, 2026.</div>
+            <div class="doi"><a href="https://doi.org/10.1609/aaai.v40i1.37012">doi:10.1609/aaai.v40i1.37012</a></div>
+          </li>
+        </ul>
+
+        <h2 id="experience">experience.txt</h2>
+        <div class="role">
+          <div class="role-title">Ph.D. Candidate, CUHK, Hong Kong SAR (Sep. 2024 – Present)</div>
+          Advisors: <a href="https://liyu95.com/">Prof. Yu Li</a> and <a href="https://www.cse.cuhk.edu.hk/people/faculty/irwin-king/">Prof. Irwin King</a>
+        </div>
+        <div class="role">
+          <div class="role-title">Research Intern, Shanghai Academy of AI for Science, Shanghai (Aug. 2025 – Present)</div>
+          Advisors: <a href="https://ai3.fudan.edu.cn/info/1088/2244.htm">Prof. Yuan Cheng</a> and Dr. Xvyang Liu
+        </div>
+        <div class="role">
+          <div class="role-title">Research Intern, AIH Group, The Chinese University of Hong Kong (Sep. 2023 – Aug. 2024)</div>
+          Advisor: <a href="https://liyu95.com/">Prof. Yu Li</a>
+        </div>
+        <div class="role">
+          <div class="role-title">Research Intern, LAMDA-1 Group, Nanjing University (Feb. 2022 – Sep. 2023)</div>
+          Advisors: <a href="https://cs.nju.edu.cn/zhouzh/index.htm">Prof. Zhihua Zhou</a> and <a href="https://www.lamda.nju.edu.cn/zhangsq/">Prof. Shaoqun Zhang</a>
+        </div>
+
+        <h2 id="education">education.txt</h2>
+        <ul>
+          <li>Ph.D. in Computer Science and Engineering, The Chinese University of Hong Kong (Sep. 2024 – Now)</li>
+          <li>B.Eng. in Artificial Intelligence, Nanjing University (Sep. 2020 – Jun. 2024)</li>
+        </ul>
+
+        <h2 id="honors">honors.txt</h2>
+        <ul>
+          <li>2024 – Present: Postgraduate Studentship (PGS), The Chinese University of Hong Kong</li>
+          <li>2024: Outstanding graduate, University level, 10% of about 3000 graduates</li>
+          <li>2023: Outstanding Student Leader Model, University level, 1% of 13000 students</li>
+          <li>2023: Outstanding Minority Student, University level, 10 out of 1500 students</li>
+          <li>2022: National Scholarship, National level, 1 out of 97 students</li>
+        </ul>
+
+        <h2 id="service">service.txt</h2>
+        <ul>
+          <li>Reviewer for journals: Science, Cell, Nature Methods, Nature Communications, Communications Biology, Bioinformatics</li>
+          <li>Reviewer for conferences: RECOMB, NeurIPS, EMNLP, ACL, AAAI</li>
+        </ul>
+
+        <h2 id="teaching">teaching.txt</h2>
+        <ul>
+          <li>BMEG-3105, Data Analytics for Personalized Genomics and Precision Medicine (2024–2026)</li>
+          <li>CSCI-5640, Natural Language Processing (2025)</li>
+          <li>ENGG-1110, Problem Solving By Programming (2024)</li>
+        </ul>
+
+        <footer>Last update: Thu Sep 3 2026</footer>
+
+        <form class="prompt-row" id="shell">
+          <label class="prompt" for="cmd">lzq:/$</label>
+          <input id="cmd" name="cmd" autocomplete="off" spellcheck="false" aria-label="terminal command">
+        </form>
+        <p class="help" id="help">commands: about papers interests experience education honors service teaching help</p>
+      </div>
     </div>
-    <img src="images/lzq.png" alt="Ziqian Lin">
-  </header>
-
-  <h2>About Me</h2>
-  <p>
-    I am a Ph.D. candidate in the Department of Computer Science and Engineering at
-    <a href="https://www.cuhk.edu.hk/">The Chinese University of Hong Kong</a>,
-    advised by <a href="https://liyu95.com/">Prof. Yu Li</a> and
-    <a href="https://www.cse.cuhk.edu.hk/people/faculty/irwin-king/">Prof. Irwin King</a>.
-    My research focuses on RNA structure prediction and design, diffusion models for biomolecule generation, and biomolecule interactions.
-  </p>
-  <p>
-    I received my B.Eng. in Artificial Intelligence from
-    <a href="https://www.nju.edu.cn/">Nanjing University</a>,
-    advised by <a href="https://cs.nju.edu.cn/zhouzh/index.htm">Prof. Zhihua Zhou</a>.
-  </p>
-
-  <h2>Research Interests</h2>
-  <ul>
-    <li>RNA structure prediction and design</li>
-    <li>Diffusion models for biomolecule generation</li>
-    <li>Biomolecule interactions</li>
-  </ul>
-
-  <h2>Selected Publications</h2>
-  <p><a href="https://scholar.google.com/citations?user=rGY-MwUAAAAJ">Google Scholar</a></p>
-
-  <ul class="pub">
-    <li>
-      <div class="pub-title">[RiboDiffusion] RiboDiffusion: tertiary structure-based RNA inverse folding with generative diffusion models</div>
-      <div class="authors">H. Huang*, <b>Z. Lin</b>*, D. He, L. Hong, Y. Li</div>
-      <div class="venue"><i>ISMB / Bioinformatics</i>, 2024. (acceptance rate 18%)</div>
-      <div class="doi"><a href="https://doi.org/10.1093/bioinformatics/btae259">doi:10.1093/bioinformatics/btae259</a></div>
-    </li>
-  </ul>
-  <ul class="pub">
-    <li>
-      <div class="pub-title">Discovering reference-missing cell types in bulk transcriptomics</div>
-      <div class="authors">Y. Fan, Y. Liu, Y. Zhong, Y. Wang, K.-H. Lee, Y. Wang, X. Liu, J. Li, X. Wang, <b>Z. Lin</b>, L. Li, Y. Li</div>
-      <div class="venue"><i>Bioinformatics / ECCB</i>, 2026.</div>
-      <div class="doi"><a href="https://doi.org/10.1093/bioinformatics/btag412">doi:10.1093/bioinformatics/btag412</a></div>
-    </li>
-  </ul>
-  <ul class="pub">
-    <li>
-      <div class="pub-title">DS-ProGen: a dual-structure deep language model for functional protein design</div>
-      <div class="authors">Y. Li*, J. Jiang*, Z. Wang*, <b>Z. Lin</b>, D. He, Y. Shan, Y. Shao, J. Li, X. Shi, J. Wang, Y. Chen, Y. Fan, H. Li, Y. Li</div>
-      <div class="venue"><i>AAAI</i>, 2026.</div>
-      <div class="doi"><a href="https://doi.org/10.1609/aaai.v40i1.37037">doi:10.1609/aaai.v40i1.37037</a></div>
-    </li>
-  </ul>
-  <ul class="pub">
-    <li>
-      <div class="pub-title">RMSAGen: Integrating Multiple Sequence Alignment for Function RNA Design</div>
-      <div class="authors">J. Jiang, Y. Chen, Q. Zhang, J. Li, X. Shi, C. Zhou, <b>Z. Lin</b>, J. Wang, D. He, L. Hong, Q. Li, P. Chen, J. Chen, X. Zhang, J. Yuan, T. Zhang, Y. Li</div>
-      <div class="venue"><i>AAAI</i>, 2026.</div>
-      <div class="doi"><a href="https://doi.org/10.1609/aaai.v40i1.37012">doi:10.1609/aaai.v40i1.37012</a></div>
-    </li>
-  </ul>
-
-  <h2>Research Experience</h2>
-  <div class="role">
-    <div class="role-title">Ph.D. Candidate, CUHK, Hong Kong SAR (Sep. 2024 – Present)</div>
-    Advisors: <a href="https://liyu95.com/">Prof. Yu Li</a> and <a href="https://www.cse.cuhk.edu.hk/people/faculty/irwin-king/">Prof. Irwin King</a>
   </div>
-  <div class="role">
-    <div class="role-title">Research Intern, Shanghai Academy of AI for Science, Shanghai (Aug. 2025 – Present)</div>
-    Advisors: <a href="https://ai3.fudan.edu.cn/info/1088/2244.htm">Prof. Yuan Cheng</a> and Dr. Xvyang Liu
-  </div>
-  <div class="role">
-    <div class="role-title">Research Intern, AIH Group, The Chinese University of Hong Kong (Sep. 2023 – Aug. 2024)</div>
-    Advisor: <a href="https://liyu95.com/">Prof. Yu Li</a>
-  </div>
-  <div class="role">
-    <div class="role-title">Research Intern, LAMDA-1 Group, Nanjing University (Feb. 2022 – Sep. 2023)</div>
-    Advisors: <a href="https://cs.nju.edu.cn/zhouzh/index.htm">Prof. Zhihua Zhou</a> and <a href="https://www.lamda.nju.edu.cn/zhangsq/">Prof. Shaoqun Zhang</a>
-  </div>
-
-  <h2>Education</h2>
-  <ul>
-    <li>Ph.D. in Computer Science and Engineering, The Chinese University of Hong Kong (Sep. 2024 – Now)</li>
-    <li>B.Eng. in Artificial Intelligence, Nanjing University (Sep. 2020 – Jun. 2024)</li>
-  </ul>
-
-  <h2>Honors &amp; Scholarships</h2>
-  <ul>
-    <li>2024 – Present: Postgraduate Studentship (PGS), The Chinese University of Hong Kong</li>
-    <li>2024: Outstanding graduate, University level, 10% of about 3000 graduates</li>
-    <li>2023: Outstanding Student Leader Model, University level, 1% of 13000 students</li>
-    <li>2023: Outstanding Minority Student, University level, 10 out of 1500 students</li>
-    <li>2022: National Scholarship, National level, 1 out of 97 students</li>
-  </ul>
-
-  <h2>Academic Service</h2>
-  <ul>
-    <li>Reviewer for journals: Science, Cell, Nature Methods, Nature Communications, Communications Biology, Bioinformatics</li>
-    <li>Reviewer for conferences: RECOMB, NeurIPS, EMNLP, ACL, AAAI</li>
-  </ul>
-
-  <h2>Teaching</h2>
-  <ul>
-    <li>BMEG-3105, Data Analytics for Personalized Genomics and Precision Medicine (2024–2026)</li>
-    <li>CSCI-5640, Natural Language Processing (2025)</li>
-    <li>ENGG-1110, Problem Solving By Programming (2024)</li>
-  </ul>
-
-  <footer>Last updated September 2026.</footer>
+  <script>
+    const map = {
+      help: "help", about: "about", bio: "about", papers: "papers", pub: "papers",
+      publications: "papers", interests: "interests", experience: "experience",
+      exp: "experience", education: "education", honors: "honors", awards: "honors",
+      service: "service", teaching: "teaching", ls: "help"
+    };
+    const help = document.getElementById("help");
+    const input = document.getElementById("cmd");
+    function run(raw) {
+      const key = (raw || "").trim().toLowerCase();
+      if (!key) return;
+      if (key === "clear") { window.scrollTo({ top: 0, behavior: "smooth" }); help.textContent = ""; return; }
+      const id = map[key];
+      if (!id) { help.textContent = "command not found: " + key + "  (try help)"; return; }
+      if (id === "help") {
+        help.textContent = "about papers interests experience education honors service teaching clear";
+        return;
+      }
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      help.textContent = "cat " + id + ".txt";
+    }
+    document.getElementById("shell").addEventListener("submit", function (e) {
+      e.preventDefault();
+      run(input.value);
+      input.value = "";
+    });
+    document.querySelectorAll("[data-cmd]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        run(a.getAttribute("data-cmd"));
+      });
+    });
+  </script>
 </body>
 </html>
