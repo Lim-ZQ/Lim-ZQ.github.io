@@ -29,9 +29,9 @@ const PAGES = {
     `  ${C.path}•${C.reset} Biomolecule interactions`,
     "",
     "• This page doubles as a shell.",
-    `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}ls /bin${C.reset}.`,
+    `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}design${C.reset}, ${C.path}ls /bin${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026 13:55${C.reset}`,
+    `${C.dim}Last update: Thu Sep 3 2026 14:39${C.reset}`,
   ],
   about: () => [
     `${C.bold}# About${C.reset}`,
@@ -145,6 +145,7 @@ const PAGES = {
     "  pwd             print the working directory",
     "  wc              count lines/words/bytes (cat about | wc -l)",
     "  whoami          who runs this site",
+    "  design [n]      random RNA sequence, length 40–100 (or n)",
     "  clear           clear the screen",
     "  exit            return to the home page (same as Ctrl-D)",
     "  plain           open the Bright Hong style page",
@@ -195,6 +196,7 @@ const APPS = {
   clear: { desc: "clear the screen", run: cmdClear },
   exit: { desc: "return to the home page", run: cmdExit },
   whoami: { desc: "who runs this site", run: cmdWhoami },
+  design: { desc: "random RNA sequence", run: cmdDesign },
   cd: { desc: "change directory", run: cmdCd, builtin: true },
   pwd: { desc: "print the working directory", run: cmdPwd, builtin: true },
 };
@@ -515,6 +517,29 @@ function cmdExit() {
 
 function cmdWhoami(_argv, { print }) {
   print("lzq");
+}
+
+function cmdDesign(argv, { print }) {
+  const bases = ["A", "U", "G", "C"];
+  let lo = 40;
+  let hi = 100;
+  const n1 = parseInt(argv[1], 10);
+  const n2 = parseInt(argv[2], 10);
+  if (Number.isFinite(n1) && Number.isFinite(n2)) {
+    lo = Math.min(n1, n2);
+    hi = Math.max(n1, n2);
+  } else if (Number.isFinite(n1)) {
+    lo = hi = n1;
+  }
+  if (!Number.isFinite(lo) || !Number.isFinite(hi) || lo < 1 || hi > 1000) {
+    print("usage: design [length] | design [min max]   (default 40–100)");
+    return;
+  }
+  const len = lo + Math.floor(Math.random() * (hi - lo + 1));
+  let seq = "";
+  for (let i = 0; i < len; i++) seq += bases[(Math.random() * 4) | 0];
+  print(`>random_rna len=${len}`);
+  print(seq);
 }
 
 function cmdCd(argv, { print }) {
