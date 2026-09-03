@@ -13,8 +13,6 @@ const osc = (text, href) => `\x1b]8;;${href}\x1b\\${text}\x1b]8;;\x1b\\`;
 
 const PAGES = {
   index: () => [
-    `${C.bold}# Ziqian LIN${C.reset}    linzq.gm [AT] gmail.com`,
-    "",
     `${C.bold}Ph.D. Candidate${C.reset} · ${osc("CSE", "https://www.cse.cuhk.edu.hk/")} · ${osc("CUHK", "https://www.cuhk.edu.hk/")}`,
     "Hong Kong SAR, China",
     "",
@@ -32,7 +30,7 @@ const PAGES = {
     "• This page doubles as a shell.",
     `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}ls${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026 13:39${C.reset}`,
+    `${C.dim}Last update: Thu Sep 3 2026 13:41${C.reset}`,
   ],
   about: () => [
     `${C.bold}# about${C.reset}`,
