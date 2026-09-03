@@ -17,7 +17,7 @@ const PAGES = {
     `${C.bold}Ph.D. Candidate${C.reset} · ${osc("CSE", "https://www.cse.cuhk.edu.hk/")} · ${osc("CUHK", "https://www.cuhk.edu.hk/")}`,
     "Hong Kong SAR, China",
     "",
-    `> ${osc("GitHub", "https://github.com/Lim-ZQ")} · ${osc("Group Github", "https://github.com/ml4bio")} · ${osc("Scholar", "https://scholar.google.com/citations?user=rGY-MwUAAAAJ")}`,
+    `> ${osc("GitHub", "https://github.com/Lim-ZQ")} · ${osc("Group GitHub", "https://github.com/ml4bio")} · ${osc("Scholar", "https://scholar.google.com/citations?user=rGY-MwUAAAAJ")}`,
     "",
     "I am a Ph.D. candidate in Computer Science and Engineering at The Chinese",
     `University of Hong Kong, advised by ${osc("Prof. Yu Li", "https://liyu95.com/")} and`,
@@ -31,7 +31,7 @@ const PAGES = {
     "• This page doubles as a shell.",
     `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}ls${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026 13:47${C.reset}`,
+    `${C.dim}Last update: Thu Sep 3 2026 13:54${C.reset}`,
   ],
   about: () => [
     `${C.bold}# About${C.reset}`,
