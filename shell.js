@@ -10,6 +10,7 @@ const C = {
 };
 
 const osc = (text, href) => `\x1b]8;;${href}\x1b\\${text}\x1b]8;;\x1b\\`;
+const PLAIN_URL = new URL("plain.html", window.location.href).href;
 
 const PAGES = {
   index: () => [
@@ -17,6 +18,7 @@ const PAGES = {
     "Hong Kong SAR, China",
     "",
     `> ${osc("GitHub", "https://github.com/Lim-ZQ")} · ${osc("Group Github", "https://github.com/ml4bio")} · ${osc("Scholar", "https://scholar.google.com/citations?user=rGY-MwUAAAAJ")}`,
+    `> Prefer a normal page? ${osc("plain", PLAIN_URL)}  (or type ${C.path}plain${C.reset})`,
     "",
     "I am a Ph.D. candidate in Computer Science and Engineering at The Chinese",
     `University of Hong Kong, advised by ${osc("Prof. Yu Li", "https://liyu95.com/")} and`,
@@ -30,7 +32,7 @@ const PAGES = {
     "• This page doubles as a shell.",
     `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}ls${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026 13:41${C.reset}`,
+    `${C.dim}Last update: Thu Sep 3 2026 13:44${C.reset}`,
   ],
   about: () => [
     `${C.bold}# about${C.reset}`,
@@ -144,11 +146,13 @@ const PAGES = {
     "  service         academic service",
     "  teaching        teaching",
     "  index / home    return to the home page",
+    "  plain           open the Bright Hong style page",
     "  clear           clear the screen",
     "  help            this page",
     "",
     `${C.bold}tips${C.reset}`,
     "  Type a page name to open it, e.g. papers or about.",
+    "  Type plain (or classic) for the normal webpage.",
     "  History: ↑ / ↓. Cancel: Ctrl-C. Clear: Ctrl-L.",
   ],
 };
@@ -196,6 +200,13 @@ const term = new Terminal({
         inject(target.slice(1));
         return;
       }
+      try {
+        const url = new URL(target, window.location.href);
+        if (url.origin === window.location.origin) {
+          window.location.href = url.href;
+          return;
+        }
+      } catch (_) {}
       window.open(target, "_blank", "noopener");
     },
   },
@@ -255,6 +266,11 @@ function run(line) {
     writeln("Ziqian LIN");
     return;
   }
+  if (cmd === "plain" || cmd === "classic" || cmd === "normal") {
+    writeln("opening the normal page...");
+    window.location.href = PLAIN_URL;
+    return;
+  }
   if (cmd === "cat") {
     if (!arg) {
       writeln("usage: cat <page>");
@@ -274,7 +290,7 @@ function complete() {
   const head = buffer.slice(0, cursor);
   const parts = head.split(/\s+/);
   const last = parts[parts.length - 1] || "";
-  const pool = parts.length <= 1 ? [...NAMES, "ls", "cat", "clear", "help", "whoami", "home"] : NAMES;
+  const pool = parts.length <= 1 ? [...NAMES, "ls", "cat", "clear", "help", "whoami", "home", "plain", "classic"] : NAMES;
   const hits = pool.filter((n) => n.startsWith(last));
   if (hits.length === 1) {
     const rest = hits[0].slice(last.length);

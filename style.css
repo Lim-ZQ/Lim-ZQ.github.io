@@ -67,6 +67,10 @@ html, body {
 
 #nameplate {
   flex: 0 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
   padding: 4px 2px 14px;
   margin-bottom: 10px;
   border-bottom: 1px solid var(--border);
@@ -85,6 +89,14 @@ html, body {
   font-size: 0.95rem;
   color: #57606a;
 }
+#nameplate .plain-link {
+  flex-shrink: 0;
+  margin-bottom: 2px;
+  color: #1a4f8b;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+#nameplate .plain-link:hover { text-decoration: underline; }
 
 #term-screen {
   flex: 1;
