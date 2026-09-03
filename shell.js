@@ -10,7 +10,6 @@ const C = {
 };
 
 const osc = (text, href) => `\x1b]8;;${href}\x1b\\${text}\x1b]8;;\x1b\\`;
-const PLAIN_URL = new URL("plain.html", window.location.href).href;
 
 const PAGES = {
   index: () => [
@@ -31,7 +30,7 @@ const PAGES = {
     "• This page doubles as a shell.",
     `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}design${C.reset}, ${C.path}ls /bin${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026 14:39${C.reset}`,
+    `${C.dim}Last update: Thu Sep 3 2026 14:43${C.reset}`,
   ],
   about: () => [
     `${C.bold}# About${C.reset}`,
@@ -133,6 +132,18 @@ const PAGES = {
     "This site is a terminal. Documents are commands — `index`, `about`, `papers` —",
     "and tools live in /bin.",
     "",
+    `${C.bold}Pages${C.reset}`,
+    "  about           About",
+    "  papers          Selected Publications",
+    "  interests       Research Interests",
+    "  experience      Research Experience",
+    "  education       Education",
+    "  honors          Honors & Scholarships",
+    "  service         Academic Service",
+    "  teaching        Teaching",
+    "  index / home    return to the home page",
+    "  help            this page",
+    "",
     `${C.bold}Commands${C.reset}`,
     "  ls [dir]        list a directory (try ls /bin)",
     "  cat <path>      print a document (no clear; pipe-friendly)",
@@ -148,8 +159,6 @@ const PAGES = {
     "  design [n]      random RNA sequence, length 40–100 (or n)",
     "  clear           clear the screen",
     "  exit            return to the home page (same as Ctrl-D)",
-    "  plain           open the Bright Hong style page",
-    "  help            this page",
     "",
     `${C.bold}Tips${C.reset}`,
     "  Run a page like papers to open it (clears the screen).",
@@ -556,11 +565,6 @@ function cmdPwd(_argv, { print }) {
   print(displayPath(cwd));
 }
 
-function cmdPlain(_argv, { print }) {
-  print("opening the normal page...");
-  window.location.href = PLAIN_URL;
-}
-
 const host = document.getElementById("term-host");
 const screen = document.getElementById("term-screen");
 
@@ -633,7 +637,6 @@ function redrawLine() {
 
 function lookupCmd(name) {
   const bare = name.replace(/^\.\//, "");
-  if (bare === "plain" || bare === "classic" || bare === "normal") return cmdPlain;
   if (APPS[bare]) return APPS[bare].run;
   const slug = resolvePath(bare);
   if (slug.startsWith("bin/") && APPS[slug.slice(4)]) return APPS[slug.slice(4)].run;
@@ -696,7 +699,7 @@ function complete() {
   const head = buffer.slice(0, cursor);
   const parts = head.split(/\s+/);
   const last = parts[parts.length - 1] || "";
-  const cmds = [...NAMES, ...Object.keys(APPS), "plain", "classic", "home"];
+  const cmds = [...NAMES, ...Object.keys(APPS), "home"];
   const pool = parts.length <= 1 ? cmds : pathPool();
   const hits = [...new Set(pool)].filter((n) => n.startsWith(last)).sort();
   if (hits.length === 1) {
