@@ -30,7 +30,7 @@ const PAGES = {
     "• This page doubles as a shell.",
     `  Try: ${C.path}help${C.reset}, ${C.path}papers${C.reset}, ${C.path}design${C.reset}, ${C.path}ls /bin${C.reset}.`,
     "",
-    `${C.dim}Last update: Thu Sep 3 2026 14:43${C.reset}`,
+    `${C.dim}Last update: Wed Sep 16 2026${C.reset}`,
   ],
   about: () => [
     `${C.bold}# About${C.reset}`,
@@ -112,13 +112,6 @@ const PAGES = {
     "• 2023: Outstanding Minority Student, University level, 10 out of 1500 students",
     "• 2022: National Scholarship, National level, 1 out of 97 students",
   ],
-  service: () => [
-    `${C.bold}# Academic Service${C.reset}`,
-    "",
-    "• Reviewer for journals: Science, Cell, Nature Methods, Nature Communications,",
-    "  Communications Biology, Bioinformatics",
-    "• Reviewer for conferences: RECOMB, NeurIPS, EMNLP, ACL, AAAI",
-  ],
   teaching: () => [
     `${C.bold}# Teaching${C.reset}`,
     "",
@@ -139,7 +132,6 @@ const PAGES = {
     "  experience      Research Experience",
     "  education       Education",
     "  honors          Honors & Scholarships",
-    "  service         Academic Service",
     "  teaching        Teaching",
     "  index / home    return to the home page",
     "  help            this page",
